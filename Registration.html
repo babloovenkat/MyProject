@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+  <title>Welcome To Registration Form</title>
+  <link rel="stylesheet" href="reg.css">
+  <script type="text/javascript">
+  	 function registration()
+	{
+		var fname= document.getElementById("first").value;
+		var lname= document.getElementById("last").value;
+		var uname= document.getElementById("user").value;
+		var pwd= document.getElementById("pass").value;			
+		var cpwd= document.getElementById("pass1").value;
+		var email= document.getElementById("email").value;
+		
+		var pwd_expression = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}/;
+		var letters = /^[a-zA-Z0-9]([._-](?![._-])|[a-zA-Z0-9]){3,18}[a-zA-Z0-9]$/;
+		var flname= /^[a-z ,.'-]+$/;
+
+		if(fname=='')
+		{
+			alert('Please enter your Firstname')
+		}
+		else if(!flname.test(fname))
+		{
+			alert('FirstName required only alphabet characters');
+			clearFunc()
+		}
+
+
+		else if(lname=='')
+		{
+			alert('Please enter your Lastname');
+		}
+		else if(!flname.test(lname))
+		{
+			alert('LastName required only alphabet characters');
+			clearFunc();
+		}
+
+		else if(document.getElementById("first").value.length < 5)
+		{
+			alert ('Firstname minimum length is 5');
+			clearFunc();
+		}
+		else if(document.getElementById("first").value.length > 10)
+		{
+			alert ('Firstname max length is 12');
+			clearFunc();
+		}
+		else if(document.getElementById("last").value.length < 8)
+		{
+			alert ('Lastname minimum length is 8');
+			clearFunc();
+		}
+		else if(document.getElementById("last").value.length > 15)
+		{
+			alert ('Lastname max length is 15');
+			clearFunc();
+		}
+
+		else if(uname=='')
+		{
+			alert('Please enter your Username');
+		}
+		else if(!letters.test(uname))
+		{
+			alert('UserName field required only alphabet characters');
+			clearFunc();
+		}
+		
+		else if(pwd=='')
+		{
+			alert('Please enter Password');
+		}
+		else if(cpwd=='')
+		{
+			alert('Enter Confirm Password');
+
+		}
+		else if(!pwd_expression.test(pwd))
+		{
+			alert ('Upper case, Lower case, Special character and Numeric letter are required in Password filed');
+			clearFunc();
+		}
+		else if(pwd != cpwd)
+		{
+			alert ('Password not Matched');
+			clearFunc();
+		}
+		else if(document.getElementById("pass").value.length < 8)
+		{
+			alert ('Password minimum length is 6');
+			clearFunc();
+		}
+		else if(document.getElementById("pass").value.length > 15)
+		{
+			alert ('Password max length is 12');
+			clearFunc();
+		}
+		else
+		{	
+			alert('Thank u');
+
+		}
+	}
+	function clearFunc()
+	{
+		document.getElementById("first").value="";
+		document.getElementById("last").value="";
+		document.getElementById("user").value="";
+		document.getElementById("pass").value="";
+		document.getElementById("pass1").value="";
+		document.getElementById("email").value="";
+		
+	}
+
+
+
+  </script>
+  </head>
+
+	<body>
+	<!-- Main div code -->
+	<div id="main">
+	<div class="h-tag">
+	<h2>Create Your Account</h2>
+	</div>
+	<!-- create account div -->
+	<div class="login">
+	<table cellspacing="2" align="center" cellpadding="8" border="0">
+	
+	<tr>
+	<td align="right">Enter Firstname :</td>
+	<td><input type="text" placeholder="Enter Firstname here" id="first" class="register" /></td>
+	</tr>
+
+	<tr>
+	<td align="right">Enter Lastname :</td>
+	<td><input type="text" placeholder="Enter Lastname here" id="last" class="register" /></td>
+	</tr>
+
+	<tr>
+	<td align="right">Enter Username :</td>
+	<td><input type="text" placeholder="Enter Username here" id="user" class="register" /></td>
+	</tr>
+
+	<tr>
+	<td align="right">Enter Password :</td>
+	<td><input type="password" placeholder="Enter Password here" id="pass" class="register" /></td>
+	</tr>
+
+	<tr>
+	<td align="right">Enter Confirm Password :</td>
+	<td><input type="password" placeholder="Enter Password here" id="pass1" class="register" /></td>
+	</tr>
+
+
+	<tr>
+	<td></td>
+	<td>
+	<input type="reset" value="Clear Form" onclick="clearFunc()" id="res" class="btn" />
+	<input type="submit" value="Create Account" class="btn" onclick="registration()" /></td>
+	</tr>
+	</table>
+	</div>
+	<!-- create account box ending here.. -->
+	</div>
+	<!-- Main div ending here... -->
+	</body>
+	</html>

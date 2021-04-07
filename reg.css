@@ -1,0 +1,67 @@
+body
+    {
+	    margin:0px; 
+     background-color:#ff6666; 
+     color:white;
+      font-family:Arial;
+    }
+    
+    #main{
+         width:200px; 
+     height:80px; 
+     margin-left:auto;
+      margin-right:auto; 
+      border-radius:5px; 
+      padding-left:10px; 
+      margin-top:100px;
+     border-top:3px; 
+     border-bottom:3px;
+      padding-top:20px;
+       background-image:url("NewBank.jpg");
+       min-height: 600px;
+       min-width: 1000px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+    }
+    
+    #main table{
+        font-family: Georgia, serif;
+    }
+    /* css code for textbox */
+    #main .tb{
+        height:28px; 
+    width:230px; 
+    border:1px ; 
+    color:#27a465; 
+    font-weight:bold; 
+    border-left:5px solid #f7f7f7; 
+    opacity:0.9;
+      }
+    
+    #main .tb:focus{
+        height:28px;
+     border:1px solid #f26724;
+      outline:none;
+     border-left:5px solid #f7f7f7;}
+
+    /* css code for button*/
+    #main .btn{
+        width:80px; 
+    height:32px; 
+    outline:none;  
+    font-weight:bold;
+     border:0px solid #27a465; 
+     text-shadow: 0px 0.5px 0.5px #fff; 
+    border-radius: 2px; 
+    font-weight: 600; color: #27a465; 
+    letter-spacing: 2px; 
+    font-size:14px; 
+    transition: 1s;
+}
+  
+    #main .btn:hover{
+        background-color:yellow; border-radius: 2px; color:red; border:1px;
+         }
+	

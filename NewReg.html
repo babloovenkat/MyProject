@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+  <title>Welcome To Registration Form</title>
+  <link rel="stylesheet" href="reg.css">
+  <script type="text/javascript">
+  	 function registration()
+	{
+		var fname= document.getElementById("first").value;
+		var lname= document.getElementById("last").value;
+		var uname= document.getElementById("user").value;
+		var pwd= document.getElementById("pass").value;			
+		var cpwd= document.getElementById("pass1").value;
+		var mob= document.getElementById("mobile").value;
+		var add=document.getElementById("addres").value;
+		
+        
+		var pwd_expression = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}/;
+		var letters = /^[a-zA-Z0-9]([._-](?![._-])|[a-zA-Z0-9]){3,18}[a-zA-Z0-9]$/;
+		var mobval= /^\d{10}$/;
+
+		if(uname=='')
+		{
+			alert('Please enter your Username');
+		}
+		else if(!letters.test(uname))
+		{
+			alert('No Special characters in UserName');
+			document.getElementById("user").value="";
+		}
+		
+		else if(pwd=='')
+		{
+			alert('Please enter Password');
+		}
+		else if(cpwd=='')
+		{
+			alert('Enter Confirm Password');
+		}
+		else if(!pwd_expression.test(pwd))
+		{
+			alert ('Upper case, Lower case, Special character and Numeric letter are required in Password filed');
+			document.getElementById("pass").value="";
+		}
+		else if(pwd != cpwd)
+		{
+			alert ('Password not Matched');
+			document.getElementById("pass1").value="";
+		}
+		else if(document.getElementById("pass").value.length < 6)
+		{
+			alert ('Password minimum length is 6');
+			document.getElementById("pass").value="";
+			document.getElementById("pass1").value="";
+		}
+		else if(document.getElementById("pass").value.length > 12)
+		{
+			alert ('Password max length is 12');
+			document.getElementById("pass").value="";
+			document.getElementById("pass1").value="";
+		}
+		else if(fname=='')
+		{
+			alert('Please enter your Firstname')
+		}
+		else if(!letters.test(fname))
+		{
+			alert('FirstName required only alphabet characters');
+			document.getElementById("first").value="";
+		}
+		else if(lname=='')
+		{
+			alert('Please enter your Lastname');
+		}
+		else if(!letters.test(lname))
+		{
+			alert('LastName required only alphabet characters');
+			document.getElementById("last").value="";
+			
+		}
+
+		else if(document.getElementById("first").value.length < 5)
+		{
+			alert ('Firstname minimum length is 5');
+			document.getElementById("first").value="";
+		}
+		else if(document.getElementById("first").value.length > 10)
+		{
+			alert ('Firstname max length is 12');
+			document.getElementById("first").value="";
+		}
+		else if(document.getElementById("last").value.length < 8)
+		{
+			alert ('Lastname minimum length is 8');
+			document.getElementById("last").value="";
+		}
+		else if(document.getElementById("last").value.length > 15)
+		{
+			alert ('Lastname max length is 15');
+			document.getElementById("last").value="";
+		}
+		else if(mob=='')
+		{
+			alert('Please enter your Mobile');
+		}
+		else if(!mobval.test(mob))
+		{
+			alert('Please Enter 10 Numbers');
+			document.getElementById("mobile").value="";
+		}
+		else if(add='')
+		{
+			alert('Please Enter Address');
+			document.getElementById("addres").value="";
+		}
+		else
+		{				                            
+               alert('Thank You for Registration, You are going to LoginPage');   
+              
+               window.location = "D:/Html/1.html"; 
+		}
+	}
+	function clearFunc()
+	{
+		document.getElementById("first").value="";
+		document.getElementById("last").value="";
+		document.getElementById("user").value="";
+		document.getElementById("pass").value="";
+		document.getElementById("pass1").value="";
+		document.getElementById("mobile").value="";
+		document.getElementById("addres").value="";
+	}
+
+
+
+
+  </script>
+  </head>
+
+	<body>
+	
+	<div id="main">
+	<div class="h-tag">
+	<h2>Create Your Account</h2>
+	</div>
+	<!-- create account div -->
+	<div class="login">
+	<table cellspacing="2" align="center" cellpadding="8" border="0">
+	<tr>
+	<td align="right">Enter FirstName :</td>
+	<td><input type="text" placeholder="Enter user here" id="first" class="register" /></td>
+	</tr>
+	<tr>
+	<td align="right">Enter LastName :</td>
+	<td><input type="text" placeholder="Enter Username here" id="last" class="register" /></td>
+	</tr>
+
+	<tr>
+	<td align="right">Enter Username :</td>
+	<td><input type="text" placeholder="Enter Username here" id="user" class="register" /></td>
+	</tr>
+	<tr>
+	<td align="right">Enter Password :</td>
+	<td><input type="password" placeholder="Enter Password here" id="pass" class="register" /></td>
+	</tr>
+
+	<tr>
+	<td align="right">Enter Confirm Password :</td>
+	<td><input type="password" placeholder="Enter Password here" id="pass1" class="register" /></td>
+	</tr>
+
+	<tr>
+	<td align="right">Enter Mobile Number:</td>
+	<td><input type="password" placeholder="Enter Mobile Number here" id="mobile" class="register" /></td>
+	</tr>
+
+	<tr>
+	<td align="right">Enter Address:</td>
+	<td><input type="textArea" placeholder="Enter Address here" id="addres" class="register" /></td>
+	</tr>
+
+
+
+
+	<tr>
+	<td align="right">Please select your gender:</td>
+	<td>
+  	<input type="radio" id="male" name="gender" value="male">
+  	<label for="male">Male</label><br>
+  	<input type="radio" id="female" name="gender" value="female">
+  	<label for="female">Female</label><br>
+  	<input type="radio" id="other" name="gender" value="other">
+  	<label for="other">Other</label></td>
+
+  </tr>
+	<tr>
+	<td></td>
+	<td>
+	<input type="reset" value="Clear" onclick="clearFunc()" id="res" class="btn" />
+	<input type="submit" value="Submit" class="btn" onclick="registration()" /></td>
+	</tr>
+	</table>
+	</div>
+	
+	</div>
+	
+	</body>
+	</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+  <title>Change Password</title>
+  <link rel="stylesheet" href="reg.css">
+  <script type="text/javascript">
+  	 function registration()
+	{
+		var fname= document.getElementById("first").value;
+		var uname= document.getElementById("user").value;
+		var pwd= document.getElementById("pass").value;			
+		var cpwd= document.getElementById("pass1").value;
+		
+		
+        
+		var pwd_expression = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}/;
+		var letters = /^[a-zA-Z0-9]([._-](?![._-])|[a-zA-Z0-9]){3,18}[a-zA-Z0-9]$/;
+		var mobval= /^\d{10}$/;
+
+		if(uname=='')
+		{
+			alert('Please enter your Username');
+		}
+		else if(!letters.test(uname))
+		{
+			alert('No Special characters in UserName');
+			document.getElementById("user").value="";
+		}
+		
+		else if(pwd=='')
+		{
+			alert('Please enter Password');
+		}
+		else if(cpwd=='')
+		{
+			alert('Enter Confirm Password');
+		}
+		else if(!pwd_expression.test(pwd))
+		{
+			alert ('Upper case, Lower case, Special character and Numeric letter are required in Password filed');
+			document.getElementById("pass").value="";
+		}
+		else if(pwd != cpwd)
+		{
+			alert ('Password not Matched');
+			document.getElementById("pass1").value="";
+		}
+		else if(document.getElementById("pass").value.length < 6)
+		{
+			alert ('Password minimum length is 6');
+			document.getElementById("pass").value="";
+			document.getElementById("pass1").value="";
+		}
+		else if(document.getElementById("pass").value.length > 12)
+		{
+			alert ('Password max length is 12');
+			document.getElementById("pass").value="";
+			document.getElementById("pass1").value="";
+		}
+		else
+		{				                            
+               alert('Thank You');   
+              
+               
+		}
+	}
+	function clearFunc()
+	{
+		document.getElementById("first").value="";
+		document.getElementById("user").value="";
+		document.getElementById("pass").value="";
+		document.getElementById("pass1").value="";
+		
+		
+	}
+
+
+
+
+  </script>
+  </head>
+
+	<body>
+	
+	<div id="main">
+	<div class="h-tag">
+	<h2>Create Your Account</h2>
+	</div>
+	<!-- create account div -->
+	<div class="login">
+	<table cellspacing="2" align="center" cellpadding="8" border="0">
+	<tr>
+	<td align="right">Enter Account Number :</td>
+	<td><input type="text" placeholder="Enter Account Number" id="first" class="register" /></td>
+	</tr>
+	
+
+	<tr>
+	<td align="right">Enter Username :</td>
+	<td><input type="text" placeholder="Enter Username here" id="user" class="register" /></td>
+	</tr>
+	<tr>
+	<td align="right">Enter Password :</td>
+	<td><input type="password" placeholder="Enter Password here" id="pass" class="register" /></td>
+	</tr>
+
+	<tr>
+	<td align="right">Enter Confirm Password :</td>
+	<td><input type="password" placeholder="Enter Password here" id="pass1" class="register" /></td>
+	</tr>
+
+
+
+	<tr>
+	<td></td>
+	<td>
+	<input type="reset" value="Clear" onclick="clearFunc()" id="res" class="btn" />
+	<input type="submit" value="Submit" class="btn" onclick="registration()" /></td>
+	</tr>
+	</table>
+	</div>
+	
+	</div>
+	
+	</body>
+	</html>
