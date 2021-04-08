@@ -1,0 +1,91 @@
+<html>
+
+<head>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+
+	<marquee style="font-size:30px;" bgcolor=#0099ff height=50px direction="left" scrollamount=10 scrolldelay=10 behavior="alternate">Welcome To Login Page</marquee>
+	
+<form>
+	<div id=main>
+	<div class=hai>
+
+		<table cellspacing="4" align="center" cellpadding="10" border="1">
+	<tr>
+		
+
+<td>UserName</td>
+<td><input type="text" id="text" placeholder ="Enter your name" class="one" ></td>
+</tr>
+<tr>
+<td>Password </td>
+<td><input type="password" id="pass" placeholder="Enter Password" class="one"></td>
+</tr>
+<td>
+<input type="submit" id="submit" class="b1"> 
+<input type="submit" value="Reset" onclick="clearFunc()" class="b1" />
+<input type="button" value="NewUser" onClick="location.href='NewReg.html'" class="b1"> 
+</td>   
+</table>
+</div>
+</div>
+</form>
+
+<script>
+document.getElementById("submit").addEventListener("click",validate);
+document.getElementById("Reset").value="";
+function validate()
+{
+var name = document.getElementById("text").value;
+var password = document.getElementById("pass").value;
+
+
+var strname = /^[a-zA-Z0-9]([._-](?![._-])|[a-zA-Z0-9]){3,18}[a-zA-Z0-9]$/;
+var strpass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}/;
+
+
+
+    if(name=='')
+    {
+      alert('Please enter your Username');
+    }
+    else if(!strname.test(name))
+    {
+      alert('No Special characters in UserName');
+      document.getElementById("text").value="";
+    }
+    else if(password=='')
+    {
+      alert('Please enter Password');
+    }
+     else if(!strpass.test(password))
+    {
+      alert('Password Not Valid');
+      document.getElementById("pass").value="";
+    }
+    else
+    {
+       window.open("AfterLogin.html");     
+    }
+
+
+  
+  
+}
+function clearFun()
+{
+	document.getElementById("text").value="";
+	document.getElementById("pass").value="";
+}
+
+
+
+
+
+
+      
+</script>
+</body>
+</html>
